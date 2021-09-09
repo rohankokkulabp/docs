@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install -g yarn
+
+  pre_build:
+    commands:
+      - yarn
+      - chmod +x ./source_version.sh
+      - export PACKAGE_VERSION=$(./source_version.sh)
+
+  build:
+    commands:
+      - yarn build
+
+      # The documentation, which has built-in versioning
+      - cp website/build/botpress-docs/index.html website/build/botpress-docs/docs/index.html
+      - aws s3 sync website/build/botpress-docs s3://botpress-docs/

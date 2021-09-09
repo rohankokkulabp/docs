@@ -1,0 +1,12 @@
+{
+  "name": "botpress_docs",
+  "version": "12.26.1",
+  "description": "The world's most powerful conversational engine",
+  "scripts": {
+    "start": "cd website && yarn && yarn start",
+    "build": "cd website && yarn && yarn build"
+  },
+  "dependencies": {
+    "prettier": "^2.4.0"
+  }
+}
