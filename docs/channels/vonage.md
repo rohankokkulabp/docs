@@ -38,8 +38,8 @@ title: Vonage
 - `signatureSecret`: Paste your Signature secret.
 - `applicationId`: Paste your Application ID.
 - `privateKey`: Paste the content of the `private.key` file that was generated when you created your Vonage Application.
-  - **Paste the full key value, including the `-----BEGIN PRIVATE KEY-----` and  `-----END PRIVATE KEY-----` lines.**
-  - **Replace all line breaks with the newline character `\n`**.
+  - Paste the full key value, including the `-----BEGIN PRIVATE KEY-----` and  `-----END PRIVATE KEY-----` lines.
+  - Replace all line breaks with the newline character `\n`.
 - `useTestingApi (optional)`: Set to `true` if you want to use the _Sandbox_ instead of the _Live_ version of Vonage API (see [Setup a Messages Sandbox](#Setup%20a%20Messages%20Sandbox)).
 
   Your `bot.config.json` should look like this :
