@@ -2,7 +2,7 @@ name: Publish Documentation
 on:
   push:
     branches:
-      - dev
+      - ya-dev-test
 
 jobs:
   publish:
@@ -22,15 +22,13 @@ jobs:
       - name: Install Tools
         run: |
           pip install awscli
-      - name: Build docs
+      - name: Build Docs
         run: |
           yarn
           yarn build
+          yarn release
           cp website/build/botpress-docs/index.html website/build/botpress-docs/docs/index.html
-      - name: Publish docs
-        env:
-          DEV_DOCS_BUCKET_NAME: ${{ secrets.DEV_DOCS_BUCKET_NAME }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 sync website/build/botpress-docs s3://$DEV_DOCS_BUCKET_NAME/ --delete
+      - name: Commit Versioned Docs
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply Versioned Docs

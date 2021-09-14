@@ -4,9 +4,13 @@
   "description": "The world's most powerful conversational engine",
   "scripts": {
     "start": "cd website && yarn && yarn start",
-    "build": "cd website && yarn && yarn build"
+    "build": "cd website && yarn && yarn build",
+    "release": "node release"
   },
   "dependencies": {
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.0",
+    "bluebird": "^3.7.2",
+    "bluebird-global": "^1.0.1",
+    "rimraf": "^3.0.2"
   }
 }
