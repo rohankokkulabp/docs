@@ -2,14 +2,17 @@
 id: authentication
 title: Authentication Methods
 ---
+
 ![This feature is available to Botpress Enterprise license holders.](assets/botpress-enterprise-feature.png)
 There are three different types of authentication:
 
 1. **Collaborators**: Access the Admin Studio UI to manage and edit chatbots based on their roles.
-2. **Chat Users**:    Can speak to chatbots listed in the Admin UI.
+2. **Chat Users**: Can speak to chatbots listed in the Admin UI.
 3. **External Users**: The developer handles user authentication by providing a JWT token to identify the user.
+   bla
 
 ## Authentication Overview
+
 Four authentication strategies are available, namely, Basic, SAML, OAuth2, and LDAP. You can implement these multiple times (for example, you could have two different OAuth2 configurations for different workspaces).
 ![Authentication Methods](assets/auth-methods.png)
 Regardless of which authentication strategy you use, they are all stored in the database. When you add a new strategy in the `botpress.config.json` and restart your application, Botpress will create a new table called `strategy_STRATEGYID`.
@@ -51,6 +54,7 @@ In your `botpress.config.json` file:
 ```
 
 ### Additional Security
+
 You can configure additional options when using this authentication strategy. Please refer to the [configuration file for more information](https://github.com/botpress/botpress/blob/master/src/bp/core/config/botpress.config.ts#L350) :
 
 - `maxLoginAttempt`: Maximum number of tries allowed before locking out the user.
@@ -60,6 +64,7 @@ You can configure additional options when using this authentication strategy. Pl
 - `requireComplexPassword`: Requires at least one character of 3 categories of characters.
 
 ### Forgot your password?
+
 Only the first user is allowed to register a new account. If you forgot your password and can't access your account, you will need to clear the list of users, and then you will be able to re-create your account. However, if you have already created other users with an administrator role, they can reset your password for you.
 
 You can clear the list of users by emptying (or deleting) the table `strategy_default` (if you are using the default strategy)
@@ -105,6 +110,7 @@ Some OAuth2 implementations return a JWT token containing all the user's informa
   }
 }
 ```
+
 ## SAML
 
 You can link your SAML Identity Provider seamlessly with Botpress. When it is enabled, Admins will be greeted with a `Sign in with SSO` button on the Admin UI. The first user to ever log in to Botpress using the SSO provider will automatically have an account created and a Super Admin.
@@ -122,6 +128,7 @@ There are two possible behaviors. You can either:
 - A SAML IdP (Identity Provider)
 
 ### Quick Start
+
 Let's use SAML to authenticate a user. We will use [jumpcloud](), a popular authentication provider. Head over to the User Authentication menu and select SSO. Select a SAML Identification provider from the ones available on the list or create a new one. For this tutorial, we used Google. Enter the required information, supplying your domain name at all positions marked **YOURDOMAIN**
 
 After creating your application, you will get the option to download your certificate. Your entry point url will appear next to your application labeled as IdP URL.
