@@ -4,9 +4,11 @@
   "description": "The world's most powerful conversational engine",
   "scripts": {
     "start": "cd website && yarn && yarn start",
-    "build": "cd website && yarn && yarn build"
+    "build": "cd website && yarn && yarn build",
+    "version-docs": "node version-docs"
   },
   "dependencies": {
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.0",
+    "rimraf": "^3.0.2"
   }
 }
