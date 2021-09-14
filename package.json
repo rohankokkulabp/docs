@@ -4,9 +4,13 @@
   "description": "The world's most powerful conversational engine",
   "scripts": {
     "start": "cd website && yarn && yarn start",
-    "build": "cd website && yarn && yarn build"
+    "build": "cd website && yarn && yarn build",
+    "upd-master": "node update-version master",
+    "upd-dev": "node update-version dev"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "bluebird-global": "^1.0.1",
     "prettier": "^2.4.0"
   }
 }
