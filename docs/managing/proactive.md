@@ -9,6 +9,8 @@ You may wish to make your bot act proactively on your website in response to som
 
 ## Requirements
 
+test
+
 ### Send an event from the webpage
 
 First you need to open the webchat (either manually or programmatically) and then send an event from the webpage.
@@ -82,7 +84,7 @@ Use this code in your `index.html`:
       botId: 'welcome-bot'
     })
 
-    window.addEventListener('message', function(event) {
+    window.addEventListener('message', function (event) {
       if (event.data.name === 'webchatReady') {
         window.botpressWebChat.sendEvent({
           type: 'proactive-trigger',
@@ -120,7 +122,7 @@ Use this code in your `index.html`:
       botId: 'welcome-bot'
     })
 
-    window.addEventListener('message', function(event) {
+    window.addEventListener('message', function (event) {
       if (event.data.name === 'webchatOpened') {
         window.botpressWebChat.sendEvent({
           type: 'proactive-trigger',
@@ -154,9 +156,11 @@ if (event.type === 'proactive-trigger') {
   event.setFlag(bp.IO.WellKnownFlags.SKIP_DIALOG_ENGINE, true)
 
   // Make the bot respond with custom content instead
-  bp.cms.renderElement('builtin_text', { text: "I'm so proactive!", typing: true }, eventDestination).then(payloads => {
-    bp.events.replyToEvent(event, payloads)
-  })
+  bp.cms
+    .renderElement('builtin_text', { text: "I'm so proactive!", typing: true }, eventDestination)
+    .then((payloads) => {
+      bp.events.replyToEvent(event, payloads)
+    })
 }
 ```
 

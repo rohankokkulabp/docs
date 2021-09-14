@@ -4,6 +4,7 @@ title: HITL Next (beta)
 ---
 
 This revamped HITL works on **all existing and future channels**. It supports all features of its predecessor and a few more :
+newver
 
 - Multi-agents ( _enterprise edition only_ )
 - Human handoff from any workflow
@@ -63,7 +64,6 @@ The module ships with a `Handoff` [action](https://botpress.com/docs/main/code#a
 ![Handoff Action](assets/hitl/handoff-action.png)
 
 Every time that node is triggered, the Handoffs section will show a new pending handoff in the list. On selecting by clicking a user, you will be able to see a preview of the conversation. On the user side, your chatbot automatically sends a **transfer message**. This message is customizable, see [configuration](#advanced-features-and-customization) section.
-
 
 ![Tranfer Message](assets/hitl/transfer-message.png)
 
