@@ -3,6 +3,7 @@
   "version": "12.26.1",
   "description": "The world's most powerful conversational engine",
   "scripts": {
+    "postinstall": "cd website && yarn",
     "start": "cd website && yarn && yarn start",
     "build": "cd website && yarn && yarn build",
     "version-docs": "node version-docs"

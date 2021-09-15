@@ -1,21 +1,29 @@
 const { exec } = require('child_process')
 const fs = require('fs')
 const rimraf = require('rimraf')
+
 const versions = require('./website/versions.json')
-const currentVersion = require('./package.json').version
-
-const clearVersion = (version) => {
-  const withoutCurrent = versions.filter((x) => x !== version)
-  fs.writeFileSync('./website/versions.json', JSON.stringify(withoutCurrent, undefined, 2), 'utf-8')
-
-  rimraf.sync(`./website/*/version-${version}*`, {})
-}
+const version = require('./package.json').version
 
 const execute = () => {
-  clearVersion(currentVersion)
+  if (versions.find((x) => x === version)) {
+    console.log(`Version ${version} already exists, clearing existing content...`)
 
-  exec(`yarn run version ${currentVersion}`, { cwd: './website' }, (err, res) => {
-    console.log(res)
+    const withoutCurrentVersion = versions.filter((x) => x !== version)
+    fs.writeFileSync('./website/versions.json', JSON.stringify(withoutCurrentVersion, undefined, 2), 'utf-8')
+
+    rimraf.sync(`./website/*/version-${version}*`, {})
+    console.log('Cleared version content')
+  } else {
+    console.log(`Version ${version} doesn't exist, publishing new version...`)
+  }
+
+  exec(`yarn run version ${version}`, { cwd: './website' }, (err, res) => {
+    if (err) {
+      return console.error(`Error running version:`, err)
+    }
+
+    console.log(`Version update result: ${res}`)
   })
 }
 
