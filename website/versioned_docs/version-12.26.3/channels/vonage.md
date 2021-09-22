@@ -1,6 +1,7 @@
 ---
-id: vonage
+id: version-12.26.3-vonage
 title: Vonage
+original_id: vonage
 ---
 
 > **⭐ Note**: Currently, only WhatsApp is supported on this channel.
