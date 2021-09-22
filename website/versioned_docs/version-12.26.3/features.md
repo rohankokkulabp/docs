@@ -1,6 +1,7 @@
 ---
-id: features
+id: version-12.26.3-features
 title: Botpress Features
+original_id: features
 ---
 
 ## Overall Product Specifications
