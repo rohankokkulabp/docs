@@ -1,6 +1,7 @@
 ---
-id: cluster
+id: version-12.26.3-cluster
 title: Clustering
+original_id: cluster
 ---
 
 ## Cluster Overview
